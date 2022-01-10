@@ -61,7 +61,7 @@
 
             doc.setFont("Roboto-BlackI");
             doc.setFontSize(14);
-            doc.text("New Forecast                                                                             ", 20, 57);
+            doc.text("New Forecast                                                                                             " + document.getElementById("customer_1").innerHTML, 20, 57);
 
             doc.setFont("Roboto-Light");
             doc.setFontSize(14);
@@ -74,14 +74,14 @@
 
             doc.setFont("Roboto-BlackI");
             doc.setFontSize(14);
-            doc.text("New Forecast", 20, 83);
+            doc.text("New Forecast                                                                                           " + document.getElementById("customer_2").innerHTML, 20, 83);
 
             doc.setDrawColor(255, 255, 255);
             doc.setFillColor(140, 197, 193);
             doc.rect(19, 86, 160, 8, "FD");
 
             doc.setFontSize(16);
-            doc.text("Current Customer Count", 20, 92);
+            doc.text("Current Customer Count                                                          " + document.getElementById("cus_count").innerHTML, 20, 92);
 
             doc.setDrawColor(4, 137, 131);
             doc.setLineWidth(1);
@@ -92,7 +92,7 @@
             doc.rect(19, 96, 160, 8, "FD");
 
             doc.setFontSize(16);
-            doc.text("New Customer Forecast", 20, 102);
+            doc.text("New Customer Forecast                                                           " + document.getElementById("cus_forecast").innerHTML, 20, 102);
 
             doc.setDrawColor(4, 137, 131);
             doc.setLineWidth(1);
@@ -107,8 +107,8 @@
 
             doc.setFont("Roboto-Light");
             doc.setFontSize(14);
-            doc.text("Number of Repeat Sales                                                                                  " + document.getElementById("rep_sales").value, 20, 123);
-            doc.text("Increase by (%)                                                                                                " + document.getElementById("rep_sales_rate").value + "%", 20, 131);
+            doc.text("Number of Repeat Sales                                                                                 " + document.getElementById("rep_sales").value, 20, 123);
+            doc.text("Increase by (%)                                                                                               " + document.getElementById("rep_sales_rate").value + "%", 20, 131);
 
             doc.setDrawColor(255, 255, 255);
             doc.setFillColor(220, 220, 220);
@@ -116,12 +116,12 @@
 
             doc.setFont("Roboto-BlackI");
             doc.setFontSize(14);
-            doc.text("New Forecast", 20, 140);
+            doc.text("New Forecast                                                                                           " + document.getElementById("sales_1").innerHTML, 20, 140);
 
             doc.setFont("Roboto-Light");
             doc.setFontSize(14);
-            doc.text("Your Average Invoice Price                                                                            " + document.getElementById("ave_price").value, 20, 149);
-            doc.text("Increase by (%)                                                                                                " + document.getElementById("ave_price_rate").value + "%", 20, 157);
+            doc.text("Your Average Invoice Price                                                                           $" + document.getElementById("ave_price").value, 20, 149);
+            doc.text("Increase by (%)                                                                                               " + document.getElementById("ave_price_rate").value + "%", 20, 157);
 
             doc.setDrawColor(255, 255, 255);
             doc.setFillColor(220, 220, 220);
@@ -129,14 +129,14 @@
 
             doc.setFont("Roboto-BlackI");
             doc.setFontSize(14);
-            doc.text("New Forecast", 20, 166);
+            doc.text("New Forecast                                                                                           " + document.getElementById("sales_2").innerHTML, 20, 166);
 
             doc.setDrawColor(255, 255, 255);
             doc.setFillColor(140, 197, 193);
             doc.rect(19, 169, 160, 8, "FD");
 
             doc.setFontSize(16);
-            doc.text("Current Revenue", 20, 175);
+            doc.text("Current Revenue                                                                   $" + document.getElementById("curr_revenue").innerHTML, 20, 175);
 
             doc.setDrawColor(4, 137, 131);
             doc.setLineWidth(1);
@@ -147,7 +147,7 @@
             doc.rect(19, 179, 160, 8, "FD");
 
             doc.setFontSize(16);
-            doc.text("New Revenue Forecast", 20, 185);
+            doc.text("New Revenue Forecast                                                      $" + document.getElementById("new_revenue").innerHTML, 20, 185);
 
             doc.setDrawColor(4, 137, 131);
             doc.setLineWidth(1);
@@ -172,14 +172,14 @@
 
             doc.setFont("Roboto-BlackI");
             doc.setFontSize(14);
-            doc.text("New Forecast", 20, 223);
+            doc.text("New Forecast                                                                                           " + document.getElementById("profit_1").innerHTML, 20, 223);
 
             doc.setDrawColor(255, 255, 255);
             doc.setFillColor(140, 197, 193);
             doc.rect(19, 226, 160, 8, "FD");
 
             doc.setFontSize(16);
-            doc.text("Profit", 20, 232);
+            doc.text("Profit                                                                                        $" + document.getElementById("profit").innerHTML, 20, 232);
 
             doc.setDrawColor(4, 137, 131);
             doc.setLineWidth(1);
@@ -190,7 +190,7 @@
             doc.rect(19, 236, 160, 8, "FD");
 
             doc.setFontSize(16);
-            doc.text("Profit Forecast", 20, 242);
+            doc.text("Profit Forecast                                                                      $" + document.getElementById("profit_forecast").innerHTML, 20, 242);
 
             doc.setDrawColor(4, 137, 131);
             doc.setLineWidth(1);
@@ -209,7 +209,14 @@
             document.getElementById("customer_1").innerHTML = (parseFloat(document.getElementById("curr_lead").value) + (parseFloat(document.getElementById("curr_lead").value) * parseFloat(document.getElementById("curr_lead_rate").value / 100))).toFixed(2);
             document.getElementById("customer_2").innerHTML = (parseFloat(document.getElementById("conv_r").value) + (parseFloat(document.getElementById("conv_r").value) * parseFloat(document.getElementById("conv_r_rate").value / 100))).toFixed(2);
             document.getElementById("cus_count").innerHTML = (parseFloat(document.getElementById("curr_lead").value) * parseFloat(document.getElementById("conv_r").value) / 100).toFixed(2);
-            document.getElementById("cus_forecast").innerHTML = (parseFloat(document.getElementById("customer_1").innerHTML) + (parseFloat(document.getElementById("customer_1").innerHTML) * parseFloat(document.getElementById("customer_2").innerHTML / 100))).toFixed(2);
+            document.getElementById("cus_forecast").innerHTML = (parseFloat(document.getElementById("customer_1").innerHTML) * parseFloat(document.getElementById("customer_2").innerHTML / 100)).toFixed(2);
+            document.getElementById("sales_1").innerHTML = (parseFloat(document.getElementById("rep_sales").value) + (parseFloat(document.getElementById("rep_sales").value) * parseFloat(document.getElementById("rep_sales_rate").value / 100))).toFixed(2);
+            document.getElementById("sales_2").innerHTML = (parseFloat(document.getElementById("ave_price").value) + (parseFloat(document.getElementById("ave_price").value) * parseFloat(document.getElementById("ave_price_rate").value / 100))).toFixed(2);
+            document.getElementById("curr_revenue").innerHTML = (parseFloat(document.getElementById("cus_count").innerHTML) * parseFloat(document.getElementById("rep_sales").value) * parseFloat(document.getElementById("ave_price").value)).toFixed(2);
+            document.getElementById("new_revenue").innerHTML = (parseFloat(document.getElementById("cus_forecast").innerHTML) * parseFloat(document.getElementById("sales_1").innerHTML) * parseFloat(document.getElementById("sales_2").innerHTML)).toFixed(2);
+            document.getElementById("profit_1").innerHTML = (parseFloat(document.getElementById("profit_margin").value) + (parseFloat(document.getElementById("profit_margin").value) * parseFloat(document.getElementById("profit_margin_rate").value / 100))).toFixed(2);
+            document.getElementById("profit").innerHTML = (parseFloat(document.getElementById("curr_revenue").innerHTML) * parseFloat(document.getElementById("profit_margin").value) / 100).toFixed(2);
+            document.getElementById("profit_forecast").innerHTML = (parseFloat(document.getElementById("new_revenue").innerHTML) * parseFloat(document.getElementById("profit_1").innerHTML) / 100).toFixed(2);
         }
     </script>
 </head>
@@ -279,42 +286,44 @@
     <div class="three-row">
         <div class="column left">
             <h4>Number of Repeat Sales</h4>
-            <input id="rep_sales" name="rep_sales" type="number">
+            <input id="rep_sales" name="rep_sales" min="0" type="number" onchange="forecast_update()" value="0">
         </div>
         <div class="column middle">
             <h4>Increase by (%)</h4>
-            <input id="rep_sales_rate" name="rep_sales_rate" type="number">
+            <input id="rep_sales_rate" name="rep_sales_rate" min="0" type="number" onchange="forecast_update()" value="0">
         </div>
         <div class="column right">
             <h4>New Forecast</h4>
-            <p>lorem</p>
+            <h4 id="sales_1"></h4>
+            <br>
             <br>
         </div>
     </div>
     <div class="row">
         <div class="column left">
             <h4>Your Average Invoice Price</h4>
-            <input id="ave_price" name="ave_price" type="number">
+            <input id="ave_price" name="ave_price" min="0" type="number" onchange="forecast_update()" value="0">
         </div>
         <div class="column middle">
             <h4>Increase by (%)</h4>
-            <input id="ave_price_rate" name="ave_price_rate" type="number">
+            <input id="ave_price_rate" name="ave_price_rate" min="0" type="number" onchange="forecast_update()" value="0">
         </div>
         <div class="column right">
             <h4>New Forecast</h4>
-            <p>lorem</p>
+            <h4 id="sales_2"></h4>
+            <br>
             <br>
         </div>
     </div>
     <div class="row">
         <div class="column left">
             <h4>Current Revenue</h4>
-            <br>
+            <h3 id="curr_revenue"></h3>
             <br>
         </div>
         <div class="column middle">
             <h4>New Revenue Forecast</h4>
-            <br>
+            <h3 id="new_revenue"></h3>
             <br>
         </div>
         <div class="column right">
@@ -332,27 +341,28 @@
     <div class="row">
         <div class="column left">
             <h4>Your Profit Margin (%)</h4>
-            <input id="profit_margin" name="profit_margin" type="number">
+            <input id="profit_margin" name="profit_margin" min="0" type="number" onchange="forecast_update()" value="0">
         </div>
         <div class="column middle">
             <h4>Increase by (%)</h4>
-            <input id="profit_margin_rate" name="profit_margin_rate" type="number">
+            <input id="profit_margin_rate" name="profit_margin_rate" min="0" type="number" onchange="forecast_update()" value="0">
         </div>
         <div class="column right">
             <h4>New Forecast</h4>
-            <p>lorem</p>
+            <h4 id="profit_1"></h4>
+            <br>
             <br>
         </div>
     </div>
     <div class="row">
         <div class="column left">
             <h4>Profit</h4>
-            <br>
+            <h3 id="profit"></h3>
             <br>
         </div>
         <div class="column middle">
             <h4>Profit Forecast</h4>
-            <br>
+            <h3 id="profit_forecast"></h3>
             <br>
         </div>
         <div class="column right">
