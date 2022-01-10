@@ -1,0 +1,17 @@
+.column {
+    float: left;
+}
+
+.left,
+.right {
+    width: 25%;
+}
+
+.two-left,
+.two-right {
+    width: 25%;
+}
+
+.middle {
+    width: 50%;
+}
