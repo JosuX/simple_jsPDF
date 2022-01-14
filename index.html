@@ -217,6 +217,13 @@
             document.getElementById("profit_1").innerHTML = (parseFloat(document.getElementById("profit_margin").value) + (parseFloat(document.getElementById("profit_margin").value) * parseFloat(document.getElementById("profit_margin_rate").value / 100))).toFixed(2);
             document.getElementById("profit").innerHTML = (parseFloat(document.getElementById("curr_revenue").innerHTML) * parseFloat(document.getElementById("profit_margin").value) / 100).toFixed(2);
             document.getElementById("profit_forecast").innerHTML = (parseFloat(document.getElementById("new_revenue").innerHTML) * parseFloat(document.getElementById("profit_1").innerHTML) / 100).toFixed(2);
+            var pricing_cost = (parseFloat(document.getElementById("pricing_labor").value) + parseFloat(document.getElementById("pricing_material").value) + parseFloat(document.getElementById("pricing_overhead").value));
+            var serv_price = pricing_cost / (1 - (document.getElementById("pricing_margin").value) / 100)
+            var price_profit = serv_price - pricing_cost;
+            document.getElementById("pricing_service").innerHTML = "$" + serv_price.toFixed(2);
+            document.getElementById("pricing_profit").innerHTML = "$" + parseFloat(price_profit).toFixed(2);
+            document.getElementById("pricing_markup").innerHTML = parseFloat(price_profit.toFixed(2) / pricing_cost * 100).toFixed(2) + "%";
+
         }
     </script>
 </head>
@@ -384,6 +391,35 @@
     <div id="my-container" class="ng-scope pdfobject-container">
         <iframe src="" style="display: none;" type="application/pdf" width="100%" height="600px">
         </iframe>
+    </div>
+
+    <div>
+        <div style="float: left; width: 50%">
+            <h4>Labor Costs ($)</h4>
+            <input id="pricing_labor" name="pricing_labor" min="0" type="number" onchange="forecast_update()" value="0">
+            <br>
+            <h4>Material Costs ($)</h4>
+            <input id="pricing_material" name="pricing_material" min="0" type="number" onchange="forecast_update()" value="0">
+            <br>
+            <h4>Overhead Expenses ($)</h4>
+            <input id="pricing_overhead" name="pricing_overhead" min="0" type="number" onchange="forecast_update()" value="0">
+            <br>
+            <h4>Margin (%)</h4>
+            <input id="pricing_margin" name="pricing_margin" min="0" type="number" onchange="forecast_update()" value="0">
+        </div>
+
+        <div style="float: left; width: 50%">
+            <h5>Service Price</h5>
+            <h2 id="pricing_service">$0.00</h2>
+            <div style="float: left; width: 50%">
+                <h5>Your Profit</h5>
+                <h4 id="pricing_profit">$0.00</h4>
+            </div>
+            <div style="float: left; width: 50%">
+                <h5>Markup</h5>
+                <h4 id="pricing_markup">0.00%</h4>
+            </div>
+        </div>
     </div>
 
 </body>
